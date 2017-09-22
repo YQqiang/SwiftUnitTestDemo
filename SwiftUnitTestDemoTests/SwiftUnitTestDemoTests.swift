@@ -11,14 +11,17 @@ import XCTest
 
 class SwiftUnitTestDemoTests: XCTestCase {
     
+    var viewController: ViewController!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        viewController = ViewController()
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        viewController = nil
     }
     
     func testExample() {
@@ -26,11 +29,27 @@ class SwiftUnitTestDemoTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testViewControllerAddFunc() {
+        let acualResult = viewController.addFunc(4, num2: 6)
+        let plantResult = 10
+        XCTAssertEqual(acualResult, plantResult)
+    }
+    
+    func testfilterNullStr1() {
+        let acualResult = viewController.filterNullStr("(156>187)&&(139!=null)&&(190!=null)", replaceStr: "3.14159")
+        let plantResult = "(156>187)&&(139!=3.14159)&&(190!=3.14159)"
+        XCTAssertEqual(acualResult, plantResult)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testValidEmailAddress() {
+        
     }
     
 }

@@ -23,3 +23,14 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController {
+    func addFunc(_ num1: Int, num2: Int) -> Int {
+        return num1 + num2
+    }
+    
+    func filterNullStr(_ str: String, replaceStr: String) -> String {
+        return str.replacingOccurrences(of: "null", with: replaceStr)
+    }
+}
+
+
